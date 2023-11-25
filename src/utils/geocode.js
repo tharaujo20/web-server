@@ -1,6 +1,6 @@
 //const request = require('postman-request');
 
-const my_geocode = (address) => {
+const geocode = (address) => {
 	const ad = address;
 	return {
 		latitude: '53.483959',
@@ -9,7 +9,7 @@ const my_geocode = (address) => {
 	};
 };
 
-const geocode = (address, callback) => {
+const old_geocode = (address, callback) => {
 	const url =
 		'https://api.mapbox.com/geocoding/v5/mapbox.places/' +
 		address +

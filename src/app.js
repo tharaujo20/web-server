@@ -45,16 +45,16 @@ app.get('/weather', (req, res) => {
 		});
 	}
 
-	// const geo = geocode(req.query.address);
-	// const fc = forecast(geo.latitude, geo.longitude);
+	const geo = geocode(req.query.address);
+	const fc = forecast(geo.latitude, geo.longitude);
 
-	// res.send({
-	// 	forecast: fc,
-	// 	location: geo.location,
-	// 	address: req.query.address,
-	// });
+	res.send({
+		forecast: fc,
+		location: geo.location,
+		address: req.query.address,
+	});
 
-	geocode(req.query.address, (error, { lat, lon, location }) => {
+	old_geocode(req.query.address, (error, { lat, lon, location }) => {
 		if (error) return res.send({ error });
 
 		forecast(lat, lon, (error, forecast) => {
